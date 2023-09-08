@@ -44,7 +44,7 @@ public class JBus
         }
     }
     
-    public static int getDiscountPrice(int price, float discountPercentage)
+    public static int getDiscountedPrice(int price, float discountPercentage)
     {   if(discountPercentage > 100.0f)
         {
             return 0;
