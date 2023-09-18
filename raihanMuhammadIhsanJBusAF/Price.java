@@ -52,7 +52,7 @@ public class Price
         }
         else
         {
-            return this.price - (this.price * ((100 - this.discount)/100));
+            return this.price * (100 - this.discount)/100;
         }
     }
     private double getRebatedPrice()
