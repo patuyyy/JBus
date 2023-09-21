@@ -7,7 +7,7 @@ package raihanMuhammadIhsanJBusAF;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Bus
+public class Bus extends Serializable
 {
     // instance variables - replace the example below with your own
     public String name;
@@ -17,8 +17,9 @@ public class Bus
     /**
      * Constructor for objects of class Bus
      */
-    public Bus(String name, Facility facility, Price price, int capacity)
+    public Bus(int id, String name, Facility facility, Price price, int capacity)
     {
+        super(id);
         this.name = name;
         this.facility = facility;
         this.price = price;

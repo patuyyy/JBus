@@ -7,7 +7,7 @@ package raihanMuhammadIhsanJBusAF;
  */
 public class JBus
 {
-    
+    /**
     public static void main(String args[])
     {
         Bus testBus = createBus();

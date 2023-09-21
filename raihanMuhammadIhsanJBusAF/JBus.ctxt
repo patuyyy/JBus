@@ -1,8 +1,4 @@
 #BlueJ class context
 comment0.target=JBus
 comment0.text=\r\nCS\ 1\r\nRaihan\ Muhammad\ Ihsan\ -\ 2206028232\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=Bus\ createBus()
-numComments=3
+numComments=1
