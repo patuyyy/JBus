@@ -7,7 +7,7 @@ package raihanMuhammadIhsanJBusAF;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Voucher
+public class Voucher extends Serializable
 {
     // instance variables - replace the example below with your own
     public String name;
@@ -20,9 +20,10 @@ public class Voucher
     /**
      * Constructor for objects of class Voucher
      */
-    public Voucher(String name, int code, Type type, double minimum, double cut)
+    public Voucher(int id, String name, int code, Type type, double minimum, double cut)
     {
         // initialise instance variables
+        super(id);
         this.name = name;
         this.code = code;
         this.type = type;
