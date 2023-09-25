@@ -9,10 +9,20 @@ package raihanMuhammadIhsanJBusAF;
  */
 public class Invoice extends Serializable
 {
+    public enum BusRating
+    {
+        NONE, NEUTRAL, GOOD, BAD
+    }
+    public enum PaymentStatus
+    {
+        FAILED, WAITING, SUCCESS
+    }
     // instance variables - replace the example below with your own
     public String time;
     public int buyerId;
     public int renterId;
+    public BusRating rating;
+    public PaymentStatus status;
 
     /**
      * Constructor for objects of class Invoice
@@ -24,6 +34,8 @@ public class Invoice extends Serializable
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = time;
+        this.rating = rating.NONE;
+        this.status = status.WAITING;
     }
     public Invoice(int id, Account buyer, Renter renter, String time)
     {
@@ -32,6 +44,8 @@ public class Invoice extends Serializable
         this.buyerId = buyer.id;
         this.renterId = renter.id;
         this.time = time;
+        this.rating = rating.NONE;
+        this.status = status.WAITING;
     }   
 
     /**
@@ -40,7 +54,7 @@ public class Invoice extends Serializable
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public String print()
+    public String toString()
     {
         // put your code here
         return(super.id + " " + this.buyerId + " " + this.renterId + " " + this.time);

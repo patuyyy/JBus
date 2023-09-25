@@ -49,4 +49,8 @@ public class Rating
     {
         return this.total;
     }
+    public String toString()
+    {
+        return this.count + " " + this.total;
+    }
 }

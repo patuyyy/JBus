@@ -10,18 +10,20 @@ package raihanMuhammadIhsanJBusAF;
 public class Station extends Serializable
 {
     // instance variables - replace the example below with your own
+    public String address;
     public City city;
     public String stationName;
 
     /**
      * Constructor for objects of class Station
      */
-    public Station(int id, String stationName, City city)
+    public Station(int id, String stationName, City city, String address)
     {
         // initialise instance variables
         super(id);
         this.stationName = stationName;
         this.city = city;
+        this.address = address;
     }
 
     /**
@@ -30,9 +32,9 @@ public class Station extends Serializable
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public String print()
+    public String toString()
     {
         // put your code here
-        return super.id + " " + this.stationName + " " + this.city;
+        return super.id + " " + this.stationName + " " + this.city + " " + this.address;
     }
 }

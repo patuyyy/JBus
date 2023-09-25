@@ -32,5 +32,8 @@ public class Account extends Serializable
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-
+    public String toString()
+    {
+        return super.id + " " + this.name + " " + this.email + " " + this.password;
+    }
 }

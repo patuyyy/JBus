@@ -39,7 +39,7 @@ public class Payment extends Invoice
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public String print()
+    public String toString()
     {
         // put your code here
         return (super.id + " " + super.buyerId + " " + super.renterId + " " + super.time +  " " + this.busId + " " + this.departureDate + " " + this.busSeat);

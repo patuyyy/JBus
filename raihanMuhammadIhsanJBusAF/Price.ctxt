@@ -7,4 +7,7 @@ comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Price\r\n
 comment2.params=price\ rebate
 comment2.target=Price(double,\ double)
 comment2.text=public\ Price(double\ price,\ int\ discount)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ this.price\ \=\ price;\r\n\ \ \ \ \ \ \ \ this.discount\ \=\ discount;\r\n\ \ \ \ \ \ \ \ this.rebate\ \=\ 0;\r\n\ \ \ \ }\r\n
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment3.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+numComments=4
