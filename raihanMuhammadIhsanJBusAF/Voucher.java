@@ -7,7 +7,7 @@ package raihanMuhammadIhsanJBusAF;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Voucher extends Serializable
+public abstract class Voucher extends Serializable implements FileParser 
 {
     // instance variables - replace the example below with your own
     public String name;
