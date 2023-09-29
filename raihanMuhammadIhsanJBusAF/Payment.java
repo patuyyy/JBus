@@ -1,4 +1,6 @@
 package raihanMuhammadIhsanJBusAF;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -11,25 +13,27 @@ public class Payment extends Invoice
 {
     // instance variables - replace the example below with your own
     private int busId;
-    public String departureDate;
+    public Calendar departureDate;
     public String busSeat;
 
     /**
      * Constructor for objects of class Payment
      */
-    public Payment(int id, int buyerId, int renterId, String time, int busId, String departureDate, String busSeat)
+    public Payment(int id, int buyerId, int renterId, int busId, String busSeat)
     {
         // initialise instance variables
         super(id, buyerId, renterId);
         this.busId = busId;
-        this.departureDate = departureDate;
+        this.departureDate = Calendar.getInstance();
+        this.departureDate.add(Calendar.DATE, +2);
         this.busSeat = busSeat;
     }
-    public Payment(int id, Account buyer, Renter renter, String time, int busId, String departureDate,String busSeat)
+    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat)
     {
         super(id, buyer, renter);
         this.busId = busId;
-        this.departureDate = departureDate;
+        this.departureDate = Calendar.getInstance();
+        this.departureDate.add(Calendar.DATE, +2);
         this.busSeat = busSeat;
     }
 
@@ -47,5 +51,17 @@ public class Payment extends Invoice
     public int getBusId()
     {
         return this.busId;
+    }
+    public String getDepartureInfo()
+    {
+        SimpleDateFormat SDFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+        String simpleDate= SDFormat.format(this.departureDate.getTime());
+        return (super.id + " " + super.buyerId + " " + super.renterId + " " + " " + this.busId + " " + simpleDate + " " + this.busSeat);
+    }
+    public String getTime()
+    {
+        SimpleDateFormat SDFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+        String simpleDate = SDFormat.format(this.departureDate.getTime());
+        return simpleDate;
     }
 }

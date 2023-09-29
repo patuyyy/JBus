@@ -1,11 +1,10 @@
 package raihanMuhammadIhsanJBusAF;
-import java.util.*;
 import java.util.ArrayList;
 
 /**
  * Write a description of class Validate here.
  *
- * @author (your name)
+ * @RaihanMuhammadIhsan
  * @version (a version number or a date)
  */
 public class Validate

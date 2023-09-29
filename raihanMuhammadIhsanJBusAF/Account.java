@@ -4,7 +4,7 @@ package raihanMuhammadIhsanJBusAF;
 /**
  * Write a description of class Account here.
  *
- * @author (your name)
+ * @RaihanMuhammadIhsan
  * @version (a version number or a date)
  */
 public abstract class Account extends Serializable implements FileParser

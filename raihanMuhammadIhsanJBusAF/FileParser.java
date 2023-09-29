@@ -15,6 +15,6 @@ public interface FileParser
      * @param  y a sample parameter for a method
      * @return   the result produced by sampleMethod
      */
-    public abstract Object write();
-    public abstract boolean read(String filename);
+    public Object write();
+    public boolean read(String filename);
 }
