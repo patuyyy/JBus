@@ -1,7 +1,7 @@
 package raihanMuhammadIhsanJBusAF;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Calendar;
+import java.sql.Timestamp;
 
 
 /**
@@ -54,15 +54,15 @@ public class Bus extends Serializable implements FileParser
         + " " + this.busType + " " + this.city;
     }
     
-    public void addSchedule(Calendar calendar)
+    public void addSchedule(Timestamp calendar)
     {
         this.schedules.add(new Schedule(calendar, this.capacity));
     }
-    
+    /*
     public void printSchedule(Schedule schedule)
     {
         System.out.println(schedule.seatAvailability);
-    }
+    }*/
     
     public Object write()
     {

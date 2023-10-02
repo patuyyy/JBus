@@ -1,5 +1,5 @@
 package raihanMuhammadIhsanJBusAF;
-import java.util.Calendar;
+import java.sql.Timestamp;
 
 /**
  * Write a description of class Invoice here.
@@ -18,10 +18,10 @@ public class Invoice extends Serializable
         FAILED, WAITING, SUCCESS
     }
     // instance variables - replace the example below with your own
-    public Calendar time;
     public int buyerId;
     public int renterId;
     public BusRating rating;
+    public Timestamp time;
     public PaymentStatus status;
 
     /**
@@ -31,10 +31,9 @@ public class Invoice extends Serializable
     {
         // initialise instance variables
         super(id);
-        Calendar cal1 = Calendar.getInstance();
+        this.time = Timestamp.from(java.time.Instant.now());
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = cal1;
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }
@@ -42,10 +41,9 @@ public class Invoice extends Serializable
     {
         // initialise instance variables
         super(id);
-        Calendar cal1 = Calendar.getInstance();
+        this.time = Timestamp.from(java.time.Instant.now());
         this.buyerId = buyer.id;
         this.renterId = renter.id;
-        this.time = cal1;
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }   

@@ -1,5 +1,5 @@
 package raihanMuhammadIhsanJBusAF;
-import java.util.Calendar;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 
@@ -13,27 +13,25 @@ public class Payment extends Invoice
 {
     // instance variables - replace the example below with your own
     private int busId;
-    public Calendar departureDate;
+    public Timestamp departureDate;
     public String busSeat;
 
     /**
      * Constructor for objects of class Payment
      */
-    public Payment(int id, int buyerId, int renterId, int busId, String busSeat)
+    public Payment(int id, int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate)
     {
         // initialise instance variables
         super(id, buyerId, renterId);
         this.busId = busId;
-        this.departureDate = Calendar.getInstance();
-        this.departureDate.add(Calendar.DATE, +2);
+        this.departureDate = departureDate;
         this.busSeat = busSeat;
     }
-    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat)
+    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate)
     {
         super(id, buyer, renter);
         this.busId = busId;
-        this.departureDate = Calendar.getInstance();
-        this.departureDate.add(Calendar.DATE, +2);
+        this.departureDate = departureDate;
         this.busSeat = busSeat;
     }
 
@@ -61,7 +59,28 @@ public class Payment extends Invoice
     public String getTime()
     {
         SimpleDateFormat SDFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
-        String simpleDate = SDFormat.format(this.departureDate.getTime());
+        String simpleDate = SDFormat.format(super.time.getTime());
         return simpleDate;
+    }
+    public static boolean isAvailable(Timestamp departureSchedule, String seat, Bus bus)
+    {
+        for (Schedule s : bus.schedules) {
+            if(s.isSeatAvailable(seat) && s.departureSchedule.equals(departureSchedule))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean makeBooking(Timestamp departureSchedule, String seat, Bus bus)
+    {
+        for (Schedule s : bus.schedules) {
+            if(s.departureSchedule.equals(departureSchedule))
+            {
+                s.bookSeat(seat);
+                return true;
+            }
+        }
+        return false;
     }
 }
