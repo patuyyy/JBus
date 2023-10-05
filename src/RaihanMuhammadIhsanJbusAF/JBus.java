@@ -9,9 +9,10 @@ import java.sql.Timestamp;
 public class JBus
 {
     
-    public static void main(String args[])
+    public static  void main(String args[])
     {
-         Bus b = createBus();
+        System.out.println("Hello from Intellij");
+         /*Bus b = createBus();
         // Payment
         Timestamp schedule1 = Timestamp.valueOf("2023-7-18 15:00:00");
         Timestamp schedule2 = Timestamp.valueOf("2023-7-20 12:00:00");
@@ -41,9 +42,11 @@ public class JBus
 
         System.out.println("\nUpdated Schedule\n");
         b.schedules.forEach(Schedule :: printSchedule);
+
+          */
     }
     
-    public static Bus createBus() {
+    /*public static Bus createBus() {
         Price price = new Price(750000, 5);
         Bus bus = new Bus(1, "Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station(1, "Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station(2, "Halte UI", City.JAKARTA, "Universitas Indonesia"));
         return bus;
