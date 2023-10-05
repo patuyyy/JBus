@@ -7,7 +7,7 @@ package raihanMuhammadIhsanJBusAF;
  * @RaihanMuhammadIhsan
  * @version (a version number or a date)
  */
-public abstract class Account extends Serializable implements FileParser
+public class Account extends Serializable implements FileParser
 {
     // instance variables - replace the example below with your own
     public String email;
@@ -35,5 +35,12 @@ public abstract class Account extends Serializable implements FileParser
     public String toString()
     {
         return super.id + " " + this.name + " " + this.email + " " + this.password;
+    }
+
+    public Object write(){
+        return null;
+    }
+    public boolean read(String string){
+        return false;
     }
 }

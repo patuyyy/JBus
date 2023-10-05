@@ -22,6 +22,15 @@ public class JBus
         System.out.println(bus3);
         System.out.println(bus4);
         System.out.println(bus5);
+
+        Integer[] numbers = {10, 20, 30, 40, 50};
+        int valueToCheck = 30;
+        boolean result = Algorithm.exists(numbers, valueToCheck);
+        if (result) {
+            System.out.println(valueToCheck + " terdapat dalam array.");
+        } else {
+            System.out.println(valueToCheck + " tidak terdapat dalam array.");
+        }
     }
 
     public static Bus createBus() {
