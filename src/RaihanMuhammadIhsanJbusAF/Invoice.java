@@ -30,7 +30,7 @@ public class Invoice extends Serializable
     protected Invoice(int id, int buyerId, int renterId)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.time = Timestamp.from(java.time.Instant.now());
         this.buyerId = buyerId;
         this.renterId = renterId;
@@ -40,7 +40,7 @@ public class Invoice extends Serializable
     public Invoice(int id, Account buyer, Renter renter)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.time = Timestamp.from(java.time.Instant.now());
         this.buyerId = buyer.id;
         this.renterId = renter.id;

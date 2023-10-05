@@ -12,8 +12,24 @@ public class JBus
     public static  void main(String args[])
     {
         System.out.println("Hello from Intellij");
+        Bus bus1 = createBus();
+        Bus bus2 = createBus();
+        Bus bus3 = createBus();
+        Bus bus4 = createBus();
+        Bus bus5 = createBus();
+        System.out.println(bus1);
+        System.out.println(bus2);
+        System.out.println(bus3);
+        System.out.println(bus4);
+        System.out.println(bus5);
+    }
+
+    public static Bus createBus() {
+        Price price = new Price(750000, 5);
+        Bus bus = new Bus(0, "Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station(1, "Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station(2, "Halte UI", City.JAKARTA, "Universitas Indonesia"));
+        return bus;
          /*Bus b = createBus();
-        // Payment
+        Payment
         Timestamp schedule1 = Timestamp.valueOf("2023-7-18 15:00:00");
         Timestamp schedule2 = Timestamp.valueOf("2023-7-20 12:00:00");
 
