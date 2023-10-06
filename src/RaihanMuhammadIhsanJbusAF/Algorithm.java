@@ -1,9 +1,10 @@
 package raihanMuhammadIhsanJBusAF;
 
-import RaihanMuhammadIhsanJbusAF.Predicate;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class Algorithm{
     private Algorithm(){
@@ -44,5 +45,134 @@ public class Algorithm{
         }
 
         return false;
+    }
+
+    public static <T> int count(Iterator<T> iterator, T value)
+    {
+        final Predicate<T> pred = value::equals;
+        return count(iterator, pred);
+    }
+
+    public static <T> int count(T[] array, T value)
+    {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return count(it, value);
+    }
+
+    public static <T> int count(Iterator<T> iterator, Predicate<T> pred)
+    {
+        int current = 0;
+            while (iterator.hasNext()) {
+                if(pred.predicate(iterator.next())) {
+                    current++;
+                }
+            }
+            return current;
+    }
+
+    public static <T> int count(T[] array, Predicate<T> pred)
+    {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return count(it, pred);
+    }
+
+    public static <T> int count(Iterable<T> iterable, T value)
+    {
+        final Iterator<T> it = iterable.iterator();
+        return count(it, value);
+    }
+
+    public static <T> int count(Iterable<T> iterable, Predicate<T> pred)
+    {
+        final Iterator<T> it = iterable.iterator();
+        return count(it, pred);
+    }
+//Find function
+    public static <T> T find(Iterator<T> iterator, T value)
+    {
+        final Predicate<T> pred = value::equals;
+        return find(iterator, pred);
+    }
+
+    public static <T> T find(T[] array, T value)
+    {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return find(it, value);
+    }
+
+    public static <T> T find(Iterator<T> iterator, Predicate<T> pred)
+    {
+        if(exists(iterator, pred) == true) {
+            while (iterator.hasNext()) {
+                T temp = iterator.next();
+                if(pred.predicate(temp)) {
+                    return temp;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public static <T> T find(T[] array, Predicate<T> pred)
+    {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return find(it, pred);
+    }
+
+    public static <T> T find(Iterable<T> iterable, T value)
+    {
+        final Iterator<T> it = iterable.iterator();
+        return find(it, value);
+    }
+
+    public static <T> T find(Iterable<T> iterable, Predicate<T> pred)
+    {
+        final Iterator<T> it = iterable.iterator();
+        return find(it, pred);
+    }
+
+    //Collect methods
+    public static <T> List<T> collect(Iterator<T> iterator, T value)
+    {
+        final Predicate<T> pred = value::equals;
+        return collect(iterator, pred);
+    }
+
+    public static <T> List<T> collect(T[] array, T value)
+    {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return collect(it, value);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> pred)
+    {
+        List<T> list = new ArrayList<>();
+        T temp;
+        while (iterator.hasNext()) {
+            temp = iterator.next();
+            if(pred.predicate(temp))
+                list.add(temp);
+        }
+        return list;
+
+    }
+
+    public static <T> List<T> collect(T[] array, Predicate<T> pred)
+    {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return collect(it, pred);
+    }
+
+    public static <T> List<T> collect(Iterable<T> iterable, T value)
+    {
+        final Iterator<T> it = iterable.iterator();
+        return collect(it, value);
+    }
+
+    public static <T> List<T> collect(Iterable<T> iterable, Predicate<T> pred)
+    {
+        final Iterator<T> it = iterable.iterator();
+        return collect(it, pred);
     }
 }

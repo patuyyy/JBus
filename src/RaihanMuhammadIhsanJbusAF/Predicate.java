@@ -1,4 +1,4 @@
-package RaihanMuhammadIhsanJbusAF;
+package raihanMuhammadIhsanJBusAF;
 
 public interface Predicate<T>
 {

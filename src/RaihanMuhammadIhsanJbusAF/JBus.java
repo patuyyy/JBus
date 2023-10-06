@@ -1,5 +1,7 @@
 package raihanMuhammadIhsanJBusAF;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Arrays;
 
 
 /**
@@ -8,29 +10,56 @@ import java.sql.Timestamp;
  */
 public class JBus
 {
-    
-    public static  void main(String args[])
-    {
-        System.out.println("Hello from Intellij");
-        Bus bus1 = createBus();
-        Bus bus2 = createBus();
-        Bus bus3 = createBus();
-        Bus bus4 = createBus();
-        Bus bus5 = createBus();
-        System.out.println(bus1);
-        System.out.println(bus2);
-        System.out.println(bus3);
-        System.out.println(bus4);
-        System.out.println(bus5);
 
-        Integer[] numbers = {10, 20, 30, 40, 50};
-        int valueToCheck = 30;
-        boolean result = Algorithm.exists(numbers, valueToCheck);
-        if (result) {
-            System.out.println(valueToCheck + " terdapat dalam array.");
+    public static void main(String[] args) {
+        Integer[] numbers = {18, 10, 22, 43, 18, 67, 12, 11, 88, 22, 18};
+        System.out.println("Number "+Arrays.toString(numbers));
+
+        // Tes Algorithm
+        System.out.print("1. ");
+        testCount(numbers);
+        System.out.print("2. ");
+        testFind(numbers);
+        System.out.print("3. ");
+        testExist(numbers);
+        System.out.println("4. Filtering");
+        testCollect(numbers);
+    }
+    private static void testExist(Integer[] t) {
+        int valueToCheck = 67;
+        boolean result3 = Algorithm.exists(t, valueToCheck);
+        if (result3) {
+            System.out.println(valueToCheck + " exist in the array.");
         } else {
-            System.out.println(valueToCheck + " tidak terdapat dalam array.");
+            System.out.println(valueToCheck + " doesn't exists in the array.");
         }
+    }
+    public static void testCount(Integer[] t) {
+        int valueToCount = 18;
+        int result = Algorithm.count(t, valueToCount);
+        System.out.println("Number " + valueToCount + " appears " + result + " times");
+    }
+    public static void testFind(Integer[] t) {
+        Integer valueToFind = 69;
+        Integer result2 = Algorithm.find(t, valueToFind);
+        System.out.print("Finding " + valueToFind + " inside the array : ");
+        if (result2 != null) {
+            System.out.println("Found!" + result2);
+        } else {
+            System.out.println("Not Found");
+        }
+    }
+    private static void testCollect(Integer[] t) {
+        Predicate<Integer> below = (val)->val<=22;
+        Predicate<Integer> above = (val)->val>43;
+
+        List<Integer> integerBelow = Algorithm.collect(t, below);
+        List<Integer> integerAbove = Algorithm.collect(t, above);
+
+        System.out.println("Below 22");
+        System.out.println(integerBelow);
+        System.out.println("Above 43");
+        System.out.println(integerAbove);
     }
 
     public static Bus createBus() {
@@ -70,6 +99,7 @@ public class JBus
 
           */
     }
+
     
     /*public static Bus createBus() {
         Price price = new Price(750000, 5);

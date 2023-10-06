@@ -43,12 +43,12 @@ public class Serializable
         return mapCounter.get(obj);
     }
 
-    public boolean compareTo(Serializable object)
+    public boolean equals(Serializable object)
     {
         return this.id == object.id;
     }
 
-    public int equals(Serializable object)
+    public int compareTo(Serializable object)
     {
         if(this.id == object.id)
         {
