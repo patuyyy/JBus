@@ -116,6 +116,6 @@ public class Schedule
         String formattedDepartureSchedule = dateFormat.format(this.departureSchedule.getTime());
         int total = Algorithm.count(this.seatAvailability.values().iterator(), true);
         int totalF = Algorithm.count(this.seatAvailability.values().iterator(), false);
-        return ("Schedule : " + formattedDepartureSchedule + "\n" + "Occupied : " + total + "/" + (totalF + total));
+        return ("Schedule : " + formattedDepartureSchedule + "\n" + "Occupied : " + totalF + "/" + (totalF + total));
     }
 }
