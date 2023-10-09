@@ -1,6 +1,9 @@
 package raihanMuhammadIhsanJBusAF;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -62,7 +65,7 @@ public class Payment extends Invoice
         String simpleDate = SDFormat.format(super.time.getTime());
         return simpleDate;
     }
-    public static boolean isAvailable(Timestamp departureSchedule, String seat, Bus bus)
+    /*public static boolean isAvailable(Timestamp departureSchedule, String seat, Bus bus)
     {
         for (Schedule s : bus.schedules) {
             if(s.isSeatAvailable(seat) && s.departureSchedule.equals(departureSchedule))
@@ -71,7 +74,7 @@ public class Payment extends Invoice
             }
         }
         return false;
-    }
+    }*/
     public static boolean makeBooking(Timestamp departureSchedule, String seat, Bus bus)
     {
         for (Schedule s : bus.schedules) {
@@ -82,5 +85,51 @@ public class Payment extends Invoice
             }
         }
         return false;
+    }
+
+    public static boolean makeBooking(Timestamp departureSchedule, List<String> seatList, Bus bus)
+    {
+        for (Schedule s : bus.schedules) {
+            if(s.departureSchedule.equals(departureSchedule))
+            {
+                for(int i = 0; i < seatList.size(); i++)
+                {
+                    s.bookSeat(seatList.get(i));
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Schedule availableSchedule(Timestamp date, String seat, Bus bus)
+    {
+        for(Schedule s : bus.schedules)
+        {
+            if(s.departureSchedule.equals(date) && s.isSeatAvailable(seat))
+            {
+                return s;
+            }
+            else return null;
+        }
+        return null;
+    }
+
+    public static Schedule availableSchedule(Timestamp date, List<String> seatList, Bus bus)
+    {
+        int counter = 0;
+        for(Schedule s : bus.schedules)
+        {
+            for (int i = 0; i<seatList.size(); i++) {
+                if (s.departureSchedule.equals(date) && s.isSeatAvailable(seatList.get(i))) {
+                    counter++;
+                }
+            }
+            if (counter == seatList.size())
+            {
+                return s;
+            }
+        }
+        return null;
     }
 }

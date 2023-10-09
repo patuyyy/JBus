@@ -3,6 +3,7 @@ import java.sql.Timestamp;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 
 /**
@@ -29,7 +30,7 @@ public class Schedule
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
+     * sample parameter for a method
      * @return    the sum of x and y
      */
     private void initializeSeatAvailability(int numberOfSeats)
@@ -56,9 +57,33 @@ public class Schedule
             return false;
         }
     }
+
+    public boolean isSeatAvailable(List<String> seat)
+    {
+        int counter = 0;
+        for(int i =0; i<seat.size(); i++)
+        {
+            if (this.seatAvailability.get(seat.get(i)) == true)
+            {
+                counter++;
+            }
+        }
+        if(counter == seat.size())return true;
+        else return false;
+
+    }
+
     public void bookSeat(String seat)
     {
         this.seatAvailability.put(seat, false);
+    }
+
+    public void bookSeat(List<String> seat)
+    {
+        for (int i = 0; i<seat.size(); i++){
+            this.seatAvailability.put(seat.get(i), false);
+        }
+
     }
     public void printSchedule() 
     {
@@ -83,5 +108,14 @@ public class Schedule
             currentSeat++;
         }
         System.out.println("\n");
+    }
+
+    public String toString()
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S");
+        String formattedDepartureSchedule = dateFormat.format(this.departureSchedule.getTime());
+        int total = Algorithm.count(this.seatAvailability.values().iterator(), true);
+        int totalF = Algorithm.count(this.seatAvailability.values().iterator(), false);
+        return ("Schedule : " + formattedDepartureSchedule + "\n" + "Occupied : " + total + "/" + (totalF + total));
     }
 }

@@ -1,6 +1,7 @@
 package raihanMuhammadIhsanJBusAF;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -12,18 +13,47 @@ public class JBus
 {
 
     public static void main(String[] args) {
-        Integer[] numbers = {18, 10, 22, 43, 18, 67, 12, 11, 88, 22, 18};
-        System.out.println("Number "+Arrays.toString(numbers));
+        // PT Modul 5
+        // Tes Pagination
+        Bus b = createBus();
+        List<Timestamp> listOfSchedules = new ArrayList<>();
+        listOfSchedules.add(Timestamp.valueOf("2023-7-18 15:00:00"));
+        listOfSchedules.add(Timestamp.valueOf("2023-7-20 12:00:00"));
+        listOfSchedules.add(Timestamp.valueOf("2023-7-22 10:00:00"));
+        listOfSchedules.add(Timestamp.valueOf("2023-7-26 12:00:00"));
 
-        // Tes Algorithm
-        System.out.print("1. ");
-        testCount(numbers);
-        System.out.print("2. ");
-        testFind(numbers);
-        System.out.print("3. ");
-        testExist(numbers);
-        System.out.println("4. Filtering");
-        testCollect(numbers);
+        listOfSchedules.forEach(b::addSchedule);
+        System.out.println("Page 1");
+        Algorithm.paginate(b.schedules, 0, 3, t -> true).forEach(System.out::println);
+        System.out.println("=====================================================");
+        System.out.println("Page 2");
+        Algorithm.paginate(b.schedules, 1, 3, t -> true).forEach(System.out::println);
+        System.out.println("=====================================================");
+
+        // Tes Booking
+        String msgSuccess = "Booking Success!";
+        String msgFailed = "Booking Failed";
+        // valid date, invalid seat = Booking Failed
+        Timestamp t1 = Timestamp.valueOf("2023-7-19 15:00:00");
+        System.out.println("\nMake booking at July 19, 2023 15:00:00 Seats: AF17 AF18");
+        System.out.println(Payment.makeBooking(t1, List.of("AF17", "AF18"), b)? msgSuccess : msgFailed);
+        // valid date, invalid seat = Booking Failed
+        Timestamp t2 = Timestamp.valueOf("2023-7-18 15:00:00");
+        System.out.println("Make booking at July 18, 2023 15:00:00 Seat AF26");
+        System.out.println(Payment.makeBooking(t2, "AF26", b)? msgSuccess : msgFailed);
+        // valid date, valid seat = Booking Success
+        System.out.println("Make booking at July 18, 2023 15:00:00 Seats: S7 S8");
+        System.out.println(Payment.makeBooking(t2, List.of("AF7", "AF8"), b)? msgSuccess : msgFailed);
+        // valid date, valid seat = Booking Success
+        Timestamp t3 = Timestamp.valueOf("2023-7-20 12:00:00");
+        System.out.println("Make booking at July 20, 2023 12:00:00 Seats: S1 S2");
+        System.out.println(Payment.makeBooking(t3, List.of("AF1", "AF2"), b)? msgSuccess : msgFailed);
+        // valid date, book the same seat = Booking Failed
+        System.out.println("Make booking at July 20, 2023 12:00:00 Seat S1");
+        System.out.println(Payment.makeBooking(t3, "AF1", b)? msgSuccess : msgFailed);
+        // check if the data changed
+        System.out.println("\nUpdated Schedule");
+        Algorithm.paginate(b.schedules, 0, 4, t-> true).forEach(System.out::println);
     }
     private static void testExist(Integer[] t) {
         int valueToCheck = 67;
