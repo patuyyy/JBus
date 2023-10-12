@@ -78,7 +78,7 @@ public class Payment extends Invoice
     public static boolean makeBooking(Timestamp departureSchedule, String seat, Bus bus)
     {
         for (Schedule s : bus.schedules) {
-            if(s.departureSchedule.equals(departureSchedule))
+            if(s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seat))
             {
                 s.bookSeat(seat);
                 return true;

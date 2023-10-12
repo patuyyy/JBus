@@ -48,7 +48,7 @@ public class Schedule
     }
     public boolean isSeatAvailable(String seat)
     {
-        if (this.seatAvailability.get(seat) == true)
+        if (this.seatAvailability.containsKey(seat))
         {
             return true;
         }
@@ -78,12 +78,11 @@ public class Schedule
         this.seatAvailability.put(seat, false);
     }
 
-    public void bookSeat(List<String> seat)
+    public void bookSeat(List<String> seatList)
     {
-        for (int i = 0; i<seat.size(); i++){
-            this.seatAvailability.put(seat.get(i), false);
+        for (String seat : seatList){
+            bookSeat(seat);
         }
-
     }
     public void printSchedule() 
     {

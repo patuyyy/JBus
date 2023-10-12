@@ -26,7 +26,7 @@ public class Bus extends Serializable implements FileParser
     /**
      * Constructor for objects of class Bus
      */
-    public Bus(int id, String name, Facility facility, Price price, int capacity, 
+    public Bus(String name, Facility facility, Price price, int capacity,
         BusType busType, City city, Station departure, Station arrival)
     {
         super();
@@ -44,7 +44,7 @@ public class Bus extends Serializable implements FileParser
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
+     *   y  a sample parameter for a method
      * @return    the sum of x and y
      */
     public String toString()

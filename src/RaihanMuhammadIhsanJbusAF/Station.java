@@ -17,7 +17,7 @@ public class Station extends Serializable
     /**
      * Constructor for objects of class Station
      */
-    public Station(int id, String stationName, City city, String address)
+    public Station(String stationName, City city, String address)
     {
         // initialise instance variables
         super();
@@ -29,7 +29,7 @@ public class Station extends Serializable
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
+     *  y  a sample parameter for a method
      * @return    the sum of x and y
      */
     public String toString()
