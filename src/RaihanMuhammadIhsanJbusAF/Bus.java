@@ -2,6 +2,7 @@ package raihanMuhammadIhsanJBusAF;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;
+import java.io.IOException;
 
 
 /**
@@ -10,7 +11,7 @@ import java.sql.Timestamp;
  * @RaihanMuhammadIhsan
  * @version (a version number or a date)
  */
-public class Bus extends Serializable implements FileParser 
+public class Bus extends Serializable
 {
     // instance variables - replace the example below with your own
     public String name;
@@ -56,7 +57,12 @@ public class Bus extends Serializable implements FileParser
     
     public void addSchedule(Timestamp calendar)
     {
-        this.schedules.add(new Schedule(calendar, this.capacity));
+        try {
+            this.schedules.add(new Schedule(calendar, this.capacity));
+        }catch(Exception e) {
+            System.out.println("Error saat memesan jadwal tersebut!");
+        }
+
     }
     /*
     public void printSchedule(Schedule schedule)

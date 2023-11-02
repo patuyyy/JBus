@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * Write a description of class Serializable here.
  *
- * @author (your name)
+ * @author ihsan
  * @version (a version number or a date)
  */
 public class Serializable
@@ -14,7 +14,7 @@ public class Serializable
     // instance variables - replace the example below with your own
     public final int id;
     private static HashMap<Class<?>, Integer> mapCounter;
-    /**
+    /*
      * Constructor for objects of class Serializable
      */
     protected Serializable()
@@ -34,8 +34,7 @@ public class Serializable
 
     public static <T> Integer setLastAssignedId (Class<T> obj, int id)
     {
-        mapCounter.replace(obj, id);
-        return mapCounter.get(obj);
+        return mapCounter.put(obj, id);
     }
 
     public static <T> Integer getLastAssignedId (Class<T> obj)

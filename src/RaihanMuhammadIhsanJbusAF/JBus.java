@@ -12,24 +12,18 @@ import com.google.gson.reflect.TypeToken;
 
 
 /**
- *CS 1
+ *Praktikum OOP - JBus
  *Raihan Muhammad Ihsan - 2206028232
  */
 public class JBus
 {
     public static void main(String[] args) {
 
-        //TP Modul 6
-
-        String filepath = "D:\\Kuliah\\23.24 Gasal\\OOP Praktikum - 02\\GitLocal\\JBus\\data\\station.json";
-        Gson gson = new Gson();
-
         try {
-            BufferedReader buffer = new BufferedReader(new FileReader(filepath));
-            List<Station> stationjson = gson.fromJson(buffer, new TypeToken<List<Station>>() {}.getType());
-            stationjson.forEach(e -> System.out.println(e.toString()));
-            System.out.println();
-            buffer.close();
+            String filepath = "D:\\Kuliah\\23.24 Gasal\\OOP Praktikum - 02\\GitLocal\\JBus\\data\\buses.json";
+            JsonTable<Bus> busList = new JsonTable<>(Bus.class, filepath);
+            List<Bus> filteredBus = filterByDeparture(busList, City.JAKARTA, 1, 10);
+            filteredBus.forEach(bus -> System.out.println(bus.toString()));
         }
         catch (IOException e){
             e.printStackTrace();
@@ -61,6 +55,20 @@ public class JBus
         System.out.println(integerBelow);
         System.out.println("Above 43");
         System.out.println(integerAbove);
+    }
+    public static List<Bus> filterByDeparture(List<Bus> buses, City departure, int page, int pageSize) {
+        List<Bus> filteredList = new ArrayList<Bus>();
+        List<Bus> originalList = buses;
+
+        for (Bus bus : originalList){
+            if(bus.city.equals(departure)){
+                filteredList.add(bus);
+            }
+        }
+
+        //return filteredList;
+        return Algorithm.paginate(filteredList, page, pageSize, t -> true);
+
     }
 
     public static Bus createBus() {
