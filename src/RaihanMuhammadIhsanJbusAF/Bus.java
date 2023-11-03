@@ -54,15 +54,15 @@ public class Bus extends Serializable
         + " " + this.capacity + " " + this.departure + " " + this.arrival
         + " " + this.busType + " " + this.city;
     }
-    
-    public void addSchedule(Timestamp calendar)
-    {
-        try {
-            this.schedules.add(new Schedule(calendar, this.capacity));
-        }catch(Exception e) {
-            System.out.println("Error saat memesan jadwal tersebut!");
-        }
 
+    public void addSchedule(Timestamp calendar) throws Exception
+    {
+        for(Schedule s : schedules) {
+            if (s.departureSchedule == calendar) {
+                throw new IllegalArgumentException("Error cuk");
+            }
+        }
+        this.schedules.add(new Schedule(calendar, this.capacity));
     }
     /*
     public void printSchedule(Schedule schedule)

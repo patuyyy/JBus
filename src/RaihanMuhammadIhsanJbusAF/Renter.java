@@ -1,5 +1,7 @@
 package raihanMuhammadIhsanJBusAF;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Write a description of class Renter here.
@@ -13,24 +15,26 @@ public class Renter extends Serializable
     public String address;
     public String companyName;
     public int phoneNumber;
+    private final String REGEX_PHONE = "[0-9]{8,11}";
+    private final String REGEX_NAME = "^[A-Z][a-zA-Z_0-9]{4,20}";
     /**
      * Constructor for objects of class Renter
      */
-    public Renter(int id,String companyName)
+    public Renter(String companyName)
     {
         super();
         this.companyName = companyName;
         this.address = "";
         this.phoneNumber = 0;
     }
-    public Renter(int id,String companyName, String address)
+    public Renter(String companyName, String address)
     {
         super();
         this.companyName = companyName;
         this.address = address;
         this.phoneNumber = 0;
     }
-    public Renter(int id,String companyName, int phoneNumber)
+    public Renter(String companyName, int phoneNumber)
     {
         super();
         this.companyName = companyName;
@@ -51,4 +55,16 @@ public class Renter extends Serializable
      * @return    the sum of x and y
      */
 
+    public boolean validate() {
+        Pattern patternPhone = Pattern.compile(REGEX_PHONE);
+        Matcher matcherPhone = patternPhone.matcher(Integer.toString(this.phoneNumber));
+        boolean matcherFindPhone = matcherPhone.find();
+        Pattern patternName = Pattern.compile(REGEX_NAME);
+        Matcher matcherName = patternName.matcher(this.companyName);
+        boolean matcherFindName = matcherName.find();
+
+        if (matcherFindName && matcherFindPhone) {
+            return true;
+        }else return false;
+    }
 }

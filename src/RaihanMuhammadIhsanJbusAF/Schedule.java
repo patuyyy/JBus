@@ -50,7 +50,10 @@ public class Schedule
     {
         if (this.seatAvailability.containsKey(seat))
         {
-            return true;
+            if (seatAvailability.get(seat)) {
+                return true;
+            }
+            else return false;
         }
         else
         {
