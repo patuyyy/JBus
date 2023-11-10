@@ -27,6 +27,7 @@ public class Account extends Serializable
     public Account(String name, String email, String password)
     {
         super();
+        this.company = null;
         this.balance = 0;
         this.name = name;
         this.email = email;
