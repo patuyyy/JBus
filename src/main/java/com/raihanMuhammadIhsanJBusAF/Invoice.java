@@ -1,4 +1,6 @@
 package com.raihanMuhammadIhsanJBusAF;
+import com.raihanMuhammadIhsanJBusAF.dbjson.Serializable;
+
 import java.sql.Timestamp;
 
 /**

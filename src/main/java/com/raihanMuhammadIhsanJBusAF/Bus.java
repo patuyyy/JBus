@@ -1,8 +1,9 @@
 package com.raihanMuhammadIhsanJBusAF;
+import com.raihanMuhammadIhsanJBusAF.dbjson.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;
-import java.io.IOException;
 
 
 /**

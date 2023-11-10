@@ -1,6 +1,8 @@
 package com.raihanMuhammadIhsanJBusAF;
 
 
+import com.raihanMuhammadIhsanJBusAF.dbjson.Serializable;
+
 /**
  * Write a description of class Review here.
  *
