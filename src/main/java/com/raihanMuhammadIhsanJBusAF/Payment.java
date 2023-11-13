@@ -17,25 +17,25 @@ public class Payment extends Invoice
     // instance variables - replace the example below with your own
     private int busId;
     public Timestamp departureDate;
-    public String busSeat;
+    public List<String> busSeats;
 
     /**
      * Constructor for objects of class Payment
      */
-    public Payment(int id, int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate)
+    public Payment(int buyerId, int renterId, int busId, List<String> busSeats, Timestamp departureDate)
     {
         // initialise instance variables
-        super(id, buyerId, renterId);
+        super(buyerId, renterId);
         this.busId = busId;
         this.departureDate = departureDate;
-        this.busSeat = busSeat;
+        this.busSeats = busSeats;
     }
-    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate)
+    public Payment(Account buyer, Renter renter, int busId, List<String> busSeats, Timestamp departureDate)
     {
-        super(id, buyer, renter);
+        super(buyer, renter);
         this.busId = busId;
         this.departureDate = departureDate;
-        this.busSeat = busSeat;
+        this.busSeats = busSeats;
     }
 
     /**
@@ -47,7 +47,7 @@ public class Payment extends Invoice
     public String toString()
     {
         // put your code here
-        return (super.id + " " + super.buyerId + " " + super.renterId + " " + super.time +  " " + this.busId + " " + this.departureDate + " " + this.busSeat);
+        return (super.id + " " + super.buyerId + " " + super.renterId + " " + super.time +  " " + this.busId + " " + this.departureDate + " " + this.busSeats);
     }
     public int getBusId()
     {
@@ -57,7 +57,7 @@ public class Payment extends Invoice
     {
         SimpleDateFormat SDFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
         String simpleDate= SDFormat.format(this.departureDate.getTime());
-        return (super.id + " " + super.buyerId + " " + super.renterId + " " + " " + this.busId + " " + simpleDate + " " + this.busSeat);
+        return (super.id + " " + super.buyerId + " " + super.renterId + " " + " " + this.busId + " " + simpleDate + " " + this.busSeats);
     }
     public String getTime()
     {

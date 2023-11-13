@@ -106,9 +106,9 @@ public class JBus
         return Algorithm.paginate(filteredList, page, pageSize, t -> true);
     }
 
-    public static Bus createBus() {
+    /*public static Bus createBus() {
         Price price = new Price(750000, 5);
-        Bus bus = new Bus("Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station("Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station("Halter UI", City.JAKARTA, "Universitas Indonesia"));
+        Bus bus = new Bus("Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, new Station("Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station("Halter UI", City.JAKARTA, "Universitas Indonesia"));
         Timestamp timestamp = Timestamp.valueOf("2023-07-27 19:00:00");
         try {
             bus.addSchedule(timestamp);
@@ -147,7 +147,7 @@ public class JBus
         System.out.println("\nUpdated Schedule\n");
         b.schedules.forEach(Schedule :: printSchedule);
 
-          */
+
     }
 
     

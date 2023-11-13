@@ -18,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
 public class AccountController implements BasicGetController<Account>
 {
 
-    @JsonAutowired(value = Account.class, filepath = "D:\\Kuliah\\23.24 Gasal\\OOP Praktikum - 02\\GitLocal\\JBus\\src\\main\\java\\com\\raihanMuhammadIhsanJBusAF\\json\\account.json")
+    @JsonAutowired(value = Account.class, filepath = "src\\main\\java\\com\\raihanMuhammadIhsanJBusAF\\json\\account.json")
     public static JsonTable<Account> accountTable;
 
     @GetMapping

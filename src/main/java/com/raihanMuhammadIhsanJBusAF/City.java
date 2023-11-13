@@ -7,7 +7,6 @@ package com.raihanMuhammadIhsanJBusAF;
  * @author (your name here)
  * @version (version number or date here)
  */
-public enum City
-{
-    JAKARTA, BANDUNG, DEPOK, SEMARANG, SURABAYA, BALI, YOGYAKARTA
+public enum City {
+    JAKARTA, DEPOK, BANDUNG, YOGYAKARTA, SEMARANG, SURABAYA, BALI, TANGGERANG, BOGOR, BEKASI, SUKABUMI
 }

@@ -29,7 +29,7 @@ public class Invoice extends Serializable
     /**
      * Constructor for objects of class Invoice
      */
-    protected Invoice(int id, int buyerId, int renterId)
+    protected Invoice(int buyerId, int renterId)
     {
         // initialise instance variables
         super();
@@ -39,7 +39,7 @@ public class Invoice extends Serializable
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }
-    public Invoice(int id, Account buyer, Renter renter)
+    public Invoice(Account buyer, Renter renter)
     {
         // initialise instance variables
         super();

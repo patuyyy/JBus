@@ -15,31 +15,31 @@ import java.sql.Timestamp;
 public class Bus extends Serializable
 {
     // instance variables - replace the example below with your own
+
     public String name;
-    public Facility facility;
+    public List<Facility> facilities;
     public Price price;
     public int capacity;
     public Station departure;
     public Station arrival;
     public BusType busType;
-    public City city;
     public List<Schedule> schedules;
+    public int accountId;
     
     /**
      * Constructor for objects of class Bus
      */
-    public Bus(String name, Facility facility, Price price, int capacity,
-        BusType busType, City city, Station departure, Station arrival)
+    public Bus(String name, List<Facility> facilities, Price price, int capacity,
+        BusType busType, Station departure, Station arrival)
     {
         super();
         this.name = name;
-        this.facility = facility;
+        this.facilities = facilities;
         this.price = price;
         this.capacity = capacity;
         this.departure = departure;
         this.arrival = arrival;
         this.busType = busType;
-        this.city = city;
         this.schedules = new ArrayList<Schedule>();
     }
 
@@ -51,9 +51,9 @@ public class Bus extends Serializable
      */
     public String toString()
     {
-        return super.id + " " + this.name + " " + this.facility + " " + this.price 
+        return super.id + " " + this.name + " " + this.facilities + " " + this.price
         + " " + this.capacity + " " + this.departure + " " + this.arrival
-        + " " + this.busType + " " + this.city;
+        + " " + this.busType;
     }
 
     public void addSchedule(Timestamp calendar) throws Exception
