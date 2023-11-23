@@ -1,1 +1,38 @@
-[{"email":"ihsan@gmail.com","name":"Raihan Muhammad Ihsan","password":"dcff76005f9d13929e54ba87be4357c8","balance":0.0,"id":2},{"email":"surya@gmail.com","name":"Surya Dharmasaputra","password":"8f64ca091b19558358d3dd66f17a3c33","balance":0.0,"id":4},{"email":"rafli@gmail.com","name":"Rafli Adithia","password":"012490c707020f1f12672df8637ce3f0","company":{"address":"Sisesa Kost","companyName":"PT Surya Sejahtera","phoneNumber":"087613214453","REGEX_PHONE":"[0-9]{8,11}","REGEX_NAME":"^[A-Z][a-zA-Z_0-9]{4,20}","id":0},"balance":0.0,"id":10},{"email":"ihsan@gmail.com","name":"Ihsan","password":"dcff76005f9d13929e54ba87be4357c8","balance":10000.0,"id":12}]
+[
+    {
+        "email": "ihsan@gmail.com",
+        "name": "Raihan Muhammad Ihsan",
+        "password": "dcff76005f9d13929e54ba87be4357c8",
+        "balance": 0.0,
+        "id": 2
+    },
+    {
+        "email": "surya@gmail.com",
+        "name": "Surya Dharmasaputra",
+        "password": "8f64ca091b19558358d3dd66f17a3c33",
+        "balance": 0.0,
+        "id": 4
+    },
+    {
+        "email": "rafli@gmail.com",
+        "name": "Rafli Adithia",
+        "password": "012490c707020f1f12672df8637ce3f0",
+        "company": {
+            "address": "Sisesa Kost",
+            "companyName": "PT Surya Sejahtera",
+            "phoneNumber": "087613214453",
+            "REGEX_PHONE": "[0-9]{8,11}",
+            "REGEX_NAME": "^[A-Z][a-zA-Z_0-9]{4,20}",
+            "id": 0
+        },
+        "balance": 0.0,
+        "id": 10
+    },
+    {
+        "email": "ihsan@gmail.com",
+        "name": "Ihsan",
+        "password": "dcff76005f9d13929e54ba87be4357c8",
+        "balance": 10000.0,
+        "id": 12
+    }
+]

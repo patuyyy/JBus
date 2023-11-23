@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/bus")
 public class BusController implements BasicGetController<Bus>{
-    @JsonAutowired(value = Station.class, filepath = "src\\main\\java\\com\\raihanMuhammadIhsanJBusAF\\json\\bus.json")
+    @JsonAutowired(value = Bus.class, filepath = "src\\main\\java\\com\\raihanMuhammadIhsanJBusAF\\json\\bus.json")
     public static JsonTable<Bus> busTable;
 
     public JsonTable<Bus> getJsonTable() {
