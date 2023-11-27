@@ -41,6 +41,7 @@ public class BusController implements BasicGetController<Bus>{
             Bus bus = new Bus(name, facilities, new Price(price), capacity, busType,
                     Algorithm.<Station>find(new StationController().getJsonTable(), t->t.id == stationDepartureId),
                     Algorithm.<Station>find(new StationController().getJsonTable(), t->t.id == stationArrivalId));
+            bus.accountId = accountId;
             busTable.add(bus);
             return new BaseResponse<>(true, "Berhasil membuat bus!! keren.", bus);
         }catch (Exception e) {
@@ -62,7 +63,10 @@ public class BusController implements BasicGetController<Bus>{
             return new BaseResponse<>(false, "Ada kesalahan saat menambah schedule!", null);
         }
     }
-
+    @GetMapping("/getMyBus")
+    public List<Bus> getMyBus(@RequestParam int accountId) {
+        return Algorithm.<Bus>collect(getJsonTable(), b->b.accountId==accountId);
+    }
 
 }
 

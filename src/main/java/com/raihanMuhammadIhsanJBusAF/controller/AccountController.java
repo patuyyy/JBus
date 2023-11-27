@@ -49,7 +49,7 @@ public class AccountController implements BasicGetController<Account>
 
         Account acc = new Account(name, email, password);
         Account responseAcc = new Account(name, email, encyptedPassword);
-        if(!acc.name.isBlank() && acc.validate() && !Algorithm.<Account>exists(getJsonTable(), t -> t.email == acc.email)){
+        if(!acc.name.isBlank() && acc.validate() && !Algorithm.<Account>exists(getJsonTable(), t -> t.email.equals(acc.email))){
             accountTable.add(responseAcc);
             return new BaseResponse<Account>(true, "Register Berhasil!", responseAcc);
         }
