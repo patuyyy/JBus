@@ -1,11 +1,13 @@
 package com.raihanMuhammadIhsanJBusAF.controller;
 
+import com.google.gson.JsonObject;
 import com.raihanMuhammadIhsanJBusAF.*;
 import com.raihanMuhammadIhsanJBusAF.dbjson.JsonAutowired;
 import com.raihanMuhammadIhsanJBusAF.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -56,6 +58,9 @@ public class BusController implements BasicGetController<Bus>{
     )
     {
         try {
+            if(Algorithm.<Bus>find(busTable, t->t.id == busId) == null){
+                return new BaseResponse<>(true, "Gak ada busnya cok, null", null);
+            }
             Bus bus = Algorithm.<Bus>find(busTable, t->t.id == busId);
             bus.addSchedule(Timestamp.valueOf(time));
             return new BaseResponse<>(true, "Berhasil buat schedule men!!", bus);
@@ -67,6 +72,13 @@ public class BusController implements BasicGetController<Bus>{
     public List<Bus> getMyBus(@RequestParam int accountId) {
         return Algorithm.<Bus>collect(getJsonTable(), b->b.accountId==accountId);
     }
-
+    @GetMapping("/getBus")
+    public Bus getBus(@RequestParam int busId) {
+        return Algorithm.<Bus>find(getJsonTable(), b->b.id==busId);
+    }
+    @GetMapping("/getAllBus")
+    public List<Bus> getAllBus() {
+        return Algorithm.<Bus>collect(getJsonTable(), b->b.name != null);
+    }
 }
 

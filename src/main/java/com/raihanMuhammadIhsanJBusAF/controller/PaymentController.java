@@ -5,6 +5,7 @@ import com.raihanMuhammadIhsanJBusAF.dbjson.JsonAutowired;
 import com.raihanMuhammadIhsanJBusAF.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -77,5 +78,10 @@ public class PaymentController implements BasicGetController<Payment> {
         }catch (Exception e) {
             return new BaseResponse<>(false, "Terjadi kesalahan saat mengubah status payment!!", null);
         }
+    }
+
+    @GetMapping("/getMyPayment")
+    public List<Payment> getMyPayment(@RequestParam int buyerId) {
+        return Algorithm.<Payment>collect(getJsonTable(), b->b.buyerId == buyerId);
     }
 }

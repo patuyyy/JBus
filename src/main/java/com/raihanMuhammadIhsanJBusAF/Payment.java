@@ -92,6 +92,11 @@ public class Payment extends Invoice
         for (Schedule s : bus.schedules) {
             if(s.departureSchedule.equals(departureSchedule))
             {
+                for(int i = 0; i<seatList.size(); i++) {
+                    for (String seat : seatList) {
+                        if(!s.isSeatAvailable(seat)) return false;
+                    }
+                }
                 for(int i = 0; i < seatList.size(); i++)
                 {
                     s.bookSeat(seatList.get(i));

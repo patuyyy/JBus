@@ -1,1 +1,1 @@
-[{"id":0},{"id":1},{"id":2}]
+[{"busId":1,"departureDate":"Dec 23, 2023, 6:30:00 AM","busSeats":["AF01"],"buyerId":7,"renterId":4,"rating":"NONE","time":"Dec 7, 2023, 4:52:42 PM","status":"WAITING","id":0},{"busId":1,"departureDate":"Dec 23, 2023, 6:30:00 AM","busSeats":["AF02"],"buyerId":7,"renterId":4,"rating":"NONE","time":"Dec 7, 2023, 4:52:45 PM","status":"WAITING","id":1},{"busId":2,"departureDate":"Dec 10, 2023, 12:00:00 PM","busSeats":["AF01"],"buyerId":7,"renterId":7,"rating":"NONE","time":"Dec 7, 2023, 4:52:48 PM","status":"WAITING","id":2}]

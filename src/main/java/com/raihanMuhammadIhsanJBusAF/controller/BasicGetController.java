@@ -24,4 +24,5 @@ public interface BasicGetController<T extends Serializable> {
         return Algorithm.<T>paginate(getJsonTable(), page, pageSize, t->true);
     }
 
+
 }
