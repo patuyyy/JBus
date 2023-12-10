@@ -6,21 +6,41 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Write a description of class Renter here.
+ * The {@code Renter} class represents a company renting buses, storing information such as company name, address, and phone number.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>Instances of this class can be created with a specified company name, and optional phone number and address.</p>
+ *
+ * <p>The class provides a validation method to check if the company name and phone number meet specific criteria.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Renter extends Serializable
 {
-    // instance variables - replace the example below with your own
+    /**
+     * The address of the renting company.
+     */
     public String address;
+    /**
+     * The name of the renting company.
+     */
     public String companyName;
+    /**
+     * The name of the renting company.
+     */
     public String phoneNumber;
+    /**
+     * Regular expression for validating phone numbers.
+     */
     private static final String REGEX_PHONE = "[0-9]{8,11}";
+    /**
+     * Regular expression for validating company names.
+     */
     private static final String REGEX_NAME = "^[A-Z][a-zA-Z_0-9]{4,20}";
     /**
-     * Constructor for objects of class Renter
+     * Constructor for objects of class Renter with a specified company name.
+     *
+     * @param companyName The name of the renting company.
      */
     public Renter(String companyName)
     {
@@ -29,6 +49,12 @@ public class Renter extends Serializable
         this.address = "";
         this.phoneNumber = "";
     }
+    /**
+     * Constructor for objects of class Renter with a specified company name and phone number.
+     *
+     * @param companyName The name of the renting company.
+     * @param phoneNumber The phone number of the renting company.
+     */
     public Renter(String companyName, String phoneNumber)
     {
         super();
@@ -36,7 +62,13 @@ public class Renter extends Serializable
         this.address = "";
         this.phoneNumber = phoneNumber;
     }
-
+    /**
+     * Constructor for objects of class Renter with a specified company name, phone number, and address.
+     *
+     * @param companyName The name of the renting company.
+     * @param phoneNumber The phone number of the renting company.
+     * @param address The address of the renting company.
+     */
     public Renter(String companyName, String phoneNumber, String address)
     {
         super();
@@ -45,12 +77,10 @@ public class Renter extends Serializable
         this.address = address;
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Validates the company name and phone number based on predefined regular expressions.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return {@code true} if the company name and phone number are valid; {@code false} otherwise.
      */
-
     public boolean validate() {
         Pattern patternPhone = Pattern.compile(REGEX_PHONE);
         Matcher matcherPhone = patternPhone.matcher(this.phoneNumber);

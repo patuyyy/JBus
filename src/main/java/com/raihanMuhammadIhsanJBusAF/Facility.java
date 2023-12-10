@@ -2,10 +2,10 @@ package com.raihanMuhammadIhsanJBusAF;
 
 
 /**
- * Enumeration class Facility - write a description of the enum class here
+ * Enumeration class Facility - for purpose give Bus class a facility
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public enum Facility
 {

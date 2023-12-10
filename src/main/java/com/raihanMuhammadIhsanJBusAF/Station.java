@@ -4,20 +4,34 @@ package com.raihanMuhammadIhsanJBusAF;
 import com.raihanMuhammadIhsanJBusAF.dbjson.Serializable;
 
 /**
- * Write a description of class Station here.
+ * The {@code Station} class represents a bus station, including its name, associated city, and address.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>Instances of this class can be created with a specified station name, city, and address.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Station extends Serializable
 {
-    // instance variables - replace the example below with your own
+    /**
+     * The address of the bus station.
+     */
     public String address;
+    /**
+     * The city associated with the bus station.
+     */
     public City city;
+    /**
+     * The name of the bus station.
+     */
     public String stationName;
 
     /**
-     * Constructor for objects of class Station
+     * Constructor for objects of class Station with a specified station name, city, and address.
+     *
+     * @param stationName The name of the bus station.
+     * @param city The city associated with the bus station.
+     * @param address The address of the bus station.
      */
     public Station(String stationName, City city, String address)
     {
@@ -29,10 +43,9 @@ public class Station extends Serializable
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Returns a string representation of the {@code Station} object.
      *
-     *  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return A string representation containing the station ID, name, associated city, and address.
      */
     public String toString()
     {

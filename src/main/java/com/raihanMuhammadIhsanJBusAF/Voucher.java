@@ -4,10 +4,12 @@ package com.raihanMuhammadIhsanJBusAF;
 import com.raihanMuhammadIhsanJBusAF.dbjson.Serializable;
 
 /**
- * Write a description of class Voucher here.
+ * The {@code Voucher} class is an abstract class that represents a voucher with a name, code, type, minimum price, and discount or rebate amount.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>It includes methods for checking whether the voucher is used, determining if it can be applied to a given price, and applying the voucher to calculate the discounted or rebated price.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public abstract class Voucher extends Serializable
 {
@@ -20,7 +22,14 @@ public abstract class Voucher extends Serializable
     public Type type;
 
     /**
-     * Constructor for objects of class Voucher
+     * Constructor for objects of class Voucher.
+     *
+     * @param id       the ID of the voucher
+     * @param name     the name of the voucher
+     * @param code     the code of the voucher
+     * @param type     the type of the voucher (REBATE or DISCOUNT)
+     * @param minimum  the minimum price requirement for applying the voucher
+     * @param cut      the discount or rebate amount
      */
     public Voucher(int id, String name, int code, Type type, double minimum, double cut)
     {
@@ -33,16 +42,20 @@ public abstract class Voucher extends Serializable
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Checks if the voucher is used.
      *
-     *
-     * @return    the sum of x and y
+     * @return true if the voucher is used, false otherwise
      */
     public boolean isUsed()
     {
         return this.used;
     }
-    
+    /**
+     * Determines whether the voucher can be applied to the given price.
+     *
+     * @param price the Price object to check against the voucher
+     * @return true if the voucher can be applied, false otherwise
+     */
     public boolean canApply(Price price)
     {
         if(price.price > this.minimum)
@@ -55,7 +68,12 @@ public abstract class Voucher extends Serializable
         }
         return false;
     }
-    
+    /**
+     * Applies the voucher to the given price, returning the discounted or rebated amount.
+     *
+     * @param price the Price object to apply the voucher to
+     * @return the discounted or rebated price
+     */
     public double apply(Price price)
     {
         // put your code here

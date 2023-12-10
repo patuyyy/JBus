@@ -2,10 +2,10 @@ package com.raihanMuhammadIhsanJBusAF;
 
 
 /**
- * Enumeration class BusType - write a description of the enum class here
+ * Enumeration class BusType - in purpose for give Bus a Bus Type
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public enum BusType
 {

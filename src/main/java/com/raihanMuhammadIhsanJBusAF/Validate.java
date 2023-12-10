@@ -2,23 +2,32 @@ package com.raihanMuhammadIhsanJBusAF;
 import java.util.ArrayList;
 
 /**
- * Write a description of class Validate here.
+ * The {@code Validate} class provides methods for filtering a list of Price objects based on certain criteria.
  *
- * @RaihanMuhammadIhsan
- * @version (a version number or a date)
+ * <p>It includes a static method {@code filter} that allows filtering a list of Price objects based on a specified value and comparison operator.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Validate
 {
     // instance variables - replace the example below with your own
 
     /**
-     * Constructor for objects of class Validate
+     * Constructor for objects of class Validate.
      */
     public Validate()
     {
         
     }
-
+    /**
+     * Filters a list of Price objects based on a specified value and comparison operator.
+     *
+     * @param list   the array of Price objects to be filtered
+     * @param value  the value used for comparison
+     * @param less   a boolean flag indicating whether to filter values less than or equal to the specified value
+     * @return an ArrayList containing the filtered prices
+     */
     public static ArrayList filter(Price[] list, int value, boolean less)
     {
         // put your code here

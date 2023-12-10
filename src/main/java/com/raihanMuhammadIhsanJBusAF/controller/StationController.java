@@ -9,17 +9,35 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller class for handling station-related operations.
+ * Includes methods for creating new stations and retrieving information about stations.
+ */
 @RestController
 @RequestMapping("/station")
 public class StationController implements BasicGetController<Station> {
+    /**
+     * JsonTable for managing station data storage.
+     */
     @JsonAutowired(value = Station.class, filepath = "src\\main\\java\\com\\raihanMuhammadIhsanJBusAF\\json\\station.json")
     public static JsonTable<Station> stationTable;
+    /**
+     * Retrieves the JsonTable associated with the Station class.
+     *
+     * @return The JsonTable for Station.
+     */
     @Override
     public JsonTable<Station> getJsonTable() {
         return stationTable;
     }
-
-    //Add new Station
+    /**
+     * Endpoint for creating a new station.
+     *
+     * @param stationName The name of the station.
+     * @param city        The city where the station is located.
+     * @param address     The address of the station.
+     * @return A BaseResponse containing information about the success or failure of the operation.
+     */
     @PostMapping("/create")
     public BaseResponse<Station> createStation(
             @RequestParam String stationName,
@@ -51,7 +69,11 @@ public class StationController implements BasicGetController<Station> {
             return new BaseResponse<>(false, "An error occurred while adding the station", null);
         }
     }
-
+    /**
+     * Endpoint for retrieving a list of all stations.
+     *
+     * @return A list containing all existing stations.
+     */
     @GetMapping("/getAll")
     public List<Station> getAllStation() { return getJsonTable();}
 

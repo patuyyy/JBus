@@ -2,10 +2,12 @@ package com.raihanMuhammadIhsanJBusAF;
 
 
 /**
- * Enumeration class Type - write a description of the enum class here
+ * The {@code Type} enum represents different types, such as rebate or discount, that can be used in various contexts.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * <p>It is used to categorize and differentiate between different types of values or actions.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public enum Type
 {

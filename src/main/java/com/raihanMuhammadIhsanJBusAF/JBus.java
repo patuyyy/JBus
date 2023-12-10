@@ -13,15 +13,29 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- *Praktikum OOP - JBus
- *Raihan Muhammad Ihsan - 2206028232
+ * The {@code JBus} class is used to run the SPRING APP for the JBus application.
+ * It contains the main method to start the application using Spring Boot.
+ * Additionally, it sets up the JsonDBEngine and adds a shutdown hook for proper cleanup.
+ *
+ * <p>This class is annotated with {@code SpringBootApplication} to enable Spring Boot auto-configuration.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 @SpringBootApplication
 public class JBus
 {
+    /**
+     * The main method to start the JBus application.
+     *
+     * @param args The command line arguments passed to the application.
+     */
     public static void main(String[] args){
+        // Run JsonDBEngine
         JsonDBEngine.Run(JBus.class);
+        // Start the Spring Boot application
         SpringApplication.run(JBus.class, args);
+        // Add a shutdown hook to properly close JsonDBEngine on application exit
         Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
     }
 

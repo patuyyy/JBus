@@ -10,16 +10,39 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Controller class for handling operations related to buses.
+ * Includes methods for creating buses, adding schedules, and retrieving bus information.
+ */
 @RestController
 @RequestMapping("/bus")
 public class BusController implements BasicGetController<Bus>{
+    /**
+     * JsonTable for managing bus data storage.
+     */
     @JsonAutowired(value = Bus.class, filepath = "src\\main\\java\\com\\raihanMuhammadIhsanJBusAF\\json\\bus.json")
     public static JsonTable<Bus> busTable;
-
+    /**
+     * Retrieves the JsonTable associated with the Bus class.
+     *
+     * @return The JsonTable for Bus.
+     */
     public JsonTable<Bus> getJsonTable() {
         return busTable;
     }
+    /**
+     * Endpoint for creating a new bus.
+     *
+     * @param accountId           The ID of the account associated with the bus.
+     * @param name                The name of the bus.
+     * @param capacity            The capacity of the bus.
+     * @param facilities          The list of facilities available on the bus.
+     * @param busType             The type of the bus (e.g., SLEEPER, EXECUTIVE).
+     * @param price               The price of the bus.
+     * @param stationDepartureId  The ID of the departure station.
+     * @param stationArrivalId    The ID of the arrival station.
+     * @return A BaseResponse containing information about the success or failure of the operation.
+     */
     @PostMapping("/create")
     public BaseResponse<Bus> create(
             @RequestParam int accountId,
@@ -50,7 +73,13 @@ public class BusController implements BasicGetController<Bus>{
             return new BaseResponse<>(false, "Ada kesalahan saat membuat bus baru!", null);
         }
     }
-
+    /**
+     * Endpoint for adding a schedule to an existing bus.
+     *
+     * @param busId The ID of the bus to which the schedule will be added.
+     * @param time  The timestamp representing the schedule time.
+     * @return A BaseResponse containing information about the success or failure of the operation.
+     */
     @PostMapping("/addSchedule")
     public BaseResponse<Bus> addSchedule(
             @RequestParam int busId,
@@ -68,14 +97,31 @@ public class BusController implements BasicGetController<Bus>{
             return new BaseResponse<>(false, "Ada kesalahan saat menambah schedule!", null);
         }
     }
+    /**
+     * Endpoint for retrieving a list of buses associated with a specific account.
+     *
+     * @param accountId The ID of the account.
+     * @return A list of buses associated with the specified account.
+     */
     @GetMapping("/getMyBus")
     public List<Bus> getMyBus(@RequestParam int accountId) {
         return Algorithm.<Bus>collect(getJsonTable(), b->b.accountId==accountId);
     }
+    /**
+     * Endpoint for retrieving information about a specific bus.
+     *
+     * @param busId The ID of the bus.
+     * @return Information about the specified bus.
+     */
     @GetMapping("/getBus")
     public Bus getBus(@RequestParam int busId) {
         return Algorithm.<Bus>find(getJsonTable(), b->b.id==busId);
     }
+    /**
+     * Endpoint for retrieving information about all buses.
+     *
+     * @return A list of all buses.
+     */
     @GetMapping("/getAllBus")
     public List<Bus> getAllBus() {
         return Algorithm.<Bus>collect(getJsonTable(), b->b.name != null);

@@ -2,19 +2,31 @@ package com.raihanMuhammadIhsanJBusAF;
 
 
 /**
- * Write a description of class Rating here.
+ * The {@code Rating} class represents a simple rating system, allowing the insertion of ratings,
+ * calculating the average rating, and providing information about the total count and sum of ratings.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>Instances of this class are created with an initial count and total sum of ratings set to zero.</p>
+ *
+ * <p>The class provides methods to insert a rating, retrieve the average rating, and get the count and total sum of ratings.</p>
+ *
+ * <p>Additionally, a method is available to convert the rating information to a string format.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Rating
 {
-    // instance variables - replace the example below with your own
+    /**
+     * The count of ratings.
+     */
     private long count;
+    /**
+     * The total sum of ratings.
+     */
     private long total;
 
     /**
-     * Constructor for objects of class Rating
+     * Constructor for objects of class Rating with an initial count and total sum set to zero.
      */
     public Rating()
     {
@@ -23,16 +35,20 @@ public class Rating
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Inserts a rating into the rating system.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param rating The rating to be inserted.
      */
     public void insert(int rating)
     {
         this.total += rating;
         this.count ++;
     }
+    /**
+     * Calculates and returns the average rating.
+     *
+     * @return The average rating or 0.0 if there are no ratings.
+     */
     public double getAverage()
     {
         if(this.count == 0)
@@ -41,14 +57,29 @@ public class Rating
         }
         return this.total/this.count;
     }
+    /**
+     * Gets the count of ratings.
+     *
+     * @return The count of ratings.
+     */
     public long getCount()
     {
         return this.count;
     }
+    /**
+     * Gets the total sum of ratings.
+     *
+     * @return The total sum of ratings.
+     */
     public long getTotal()
     {
         return this.total;
     }
+    /**
+     * Returns a string representation of the {@code Rating} object.
+     *
+     * @return A string representation of the object containing the count and total sum of ratings.
+     */
     public String toString()
     {
         return this.count + " " + this.total;

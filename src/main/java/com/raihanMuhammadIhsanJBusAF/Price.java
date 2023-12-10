@@ -2,20 +2,34 @@ package com.raihanMuhammadIhsanJBusAF;
 
 
 /**
- * Write a description of class Price here.
+ * The {@code Price} class represents the price information for a bus ticket,
+ * including the base price and any applicable rebate.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>Instances of this class can be created with a specified base price and rebate.</p>
+ *
+ * <p>The class provides a method to convert the price information to a string format.</p>
+ *
+ * <p>Additional methods for discounted and rebated prices have been commented out.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Price
 {
-    // instance variables - replace the example below with your own
+    /**
+     * The base rebate of the bus ticket.
+     */
     public double rebate;
+    /**
+     * The base price of the bus ticket.
+     */
     public double price;
     /*public int discount;*/
-    
+
     /**
-     * Constructor for objects of class Price
+     * Constructor for objects of class Price with a specified base price.
+     *
+     * @param price The base price of the bus ticket.
      */
     public Price(double price)
     {
@@ -23,14 +37,13 @@ public class Price
         /*this.discount = 0;*/
         this.rebate = 0;
     }
-    
-    /**public Price(double price, int discount)
-    {
-        this.price = price;
-        this.discount = discount;
-        this.rebate = 0;
-    }
-    */
+
+    /**
+     * Constructor for objects of class Price with a specified base price and rebate.
+     *
+     * @param price The base price of the bus ticket.
+     * @param rebate The rebate applied to the bus ticket.
+     */
     public Price(double price, double rebate)
     {
         this.price = price;
@@ -39,10 +52,9 @@ public class Price
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Returns a string representation of the {@code Price} object.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return A string representation of the object containing the base price and rebate.
      */
     public String toString()
     {

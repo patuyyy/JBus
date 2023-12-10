@@ -9,10 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
-
-
-
+/**
+ * The {@code AccountController} class is a Spring REST controller responsible for handling account-related operations, such as registration, login, top-up, and payment.
+ *
+ * <p>This controller includes methods for registering an account, logging in, registering a renter associated with an account, and performing top-up and payment transactions.</p>
+ *
+ * @RestController annotation indicates that this class is a Spring MVC controller.
+ * @RequestMapping("/account") sets the base URL path for all mappings in this class.
+ * @Author Raihan Muhammad Ihsan
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account>
@@ -23,6 +29,14 @@ public class AccountController implements BasicGetController<Account>
 
     @GetMapping
     String index() { return "account page"; }
+    /**
+     * Registers a new account.
+     *
+     * @param name     the name of the account
+     * @param email    the email of the account
+     * @param password the password of the account
+     * @return a BaseResponse containing the registration result and the created account if successful
+     */
     @PostMapping("/register")
     BaseResponse<Account> register
             (
@@ -55,7 +69,13 @@ public class AccountController implements BasicGetController<Account>
         }
         return new BaseResponse<Account>(false, "Gagal register", null);
     }
-
+    /**
+     * Logs in an existing account.
+     *
+     * @param email    the email of the account
+     * @param password the password of the account
+     * @return a BaseResponse containing the login result and the logged-in account if successful
+     */
     @PostMapping("/login")
     BaseResponse<Account> login(
             @RequestParam String email,
@@ -89,7 +109,15 @@ public class AccountController implements BasicGetController<Account>
     public JsonTable<Account> getJsonTable() {
         return this.accountTable;
     }
-
+    /**
+     * Registers a new renter associated with the specified account.
+     *
+     * @param id           the ID of the account to associate the renter with
+     * @param companyName  the name of the renter's company
+     * @param address      the address of the renter
+     * @param phoneNumber  the phone number of the renter
+     * @return a BaseResponse containing the registration result and the created renter if successful
+     */
     @PostMapping("/{id}/registerRenter")
     BaseResponse<Renter> registerRenter(
             @PathVariable int id,
@@ -105,7 +133,13 @@ public class AccountController implements BasicGetController<Account>
         }
         return new BaseResponse<>(false, "Renter Gagal dibuat", null);
     }
-
+    /**
+     * Performs a top-up transaction for the specified account.
+     *
+     * @param id     the ID of the account to perform the top-up
+     * @param amount the amount to be added to the account balance
+     * @return a BaseResponse containing the top-up result and the updated account balance if successful
+     */
     @PostMapping("/{id}/topUp")
     BaseResponse<Double> topUp(
             @PathVariable int id,
@@ -118,7 +152,6 @@ public class AccountController implements BasicGetController<Account>
         accTopUp.topUp(amount);
         return new BaseResponse<>(true, "Berhasil TopUp", amount);
     }
-
 
     //@GetMapping("/{id}")
     //String getById(@PathVariable int id) { return "account id " + id + " not found!"; }

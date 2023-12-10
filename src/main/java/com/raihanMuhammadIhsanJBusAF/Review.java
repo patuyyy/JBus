@@ -4,17 +4,32 @@ package com.raihanMuhammadIhsanJBusAF;
 import com.raihanMuhammadIhsanJBusAF.dbjson.Serializable;
 
 /**
- * Write a description of class Review here.
+ * The {@code Review} class represents a review containing information such as the date and description.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>Instances of this class can be created with a specified date and description.</p>
+ *
+ * <p>The class inherits from {@code Serializable}, implying that objects of this class can be serialized.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Review extends Serializable
 {
-    // instance variables - replace the example below with your own
+    /**
+     * The date of the review.
+     */
     public String date;
+    /**
+     * The description of the review.
+     */
     public String desc;
-
+    /**
+     * Constructor for objects of class Review with a specified id, date, and description.
+     *
+     * @param id The identifier of the review.
+     * @param date The date of the review.
+     * @param desc The description of the review.
+     */
     public Review(int id, String date, String desc)
     {
         super();
@@ -23,10 +38,9 @@ public class Review extends Serializable
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Returns a string representation of the {@code Review} object.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return A string representation of the object containing the id, date, and description.
      */
     public String toString()
     {

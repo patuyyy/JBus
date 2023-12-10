@@ -7,19 +7,32 @@ import java.util.List;
 
 
 /**
- * Write a description of class Schedule here.
+ * The {@code Schedule} class represents a schedule for a bus, including the departure timestamp and seat availability.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * <p>Instances of this class can be created with a specified departure timestamp and the number of available seats.</p>
+ *
+ * <p>The class provides methods to check seat availability, book seats, and print the schedule details.</p>
+ *
+ * @author Raihan Muhammad Ihsan
+ * @version 1.0.0
  */
 public class Schedule
 {
-    // instance variables - replace the example below with your own
+    /**
+     * The timestamp of the departure schedule.
+     */
     public Timestamp departureSchedule;
+    /**
+     * A map representing the availability of each seat. The key is the seat identifier, and the value is a boolean
+     * indicating whether the seat is available (true) or booked (false).
+     */
     public Map<String, Boolean> seatAvailability;
 
     /**
-     * Constructor for objects of class Schedule
+     * Constructor for objects of class Schedule with a specified departure timestamp and the number of available seats.
+     *
+     * @param departureSchedule The timestamp of the departure schedule.
+     * @param numberOfSeats The number of available seats.
      */
     public Schedule(Timestamp departureSchedule, int numberOfSeats)
     {
@@ -28,10 +41,9 @@ public class Schedule
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Initializes the seat availability map with the specified number of available seats.
      *
-     * sample parameter for a method
-     * @return    the sum of x and y
+     * @param numberOfSeats The number of available seats.
      */
     private void initializeSeatAvailability(int numberOfSeats)
     {
@@ -46,6 +58,12 @@ public class Schedule
             this.seatAvailability.put("AF" + i, true);
         }*/
     }
+    /**
+     * Checks if a specific seat is available.
+     *
+     * @param seat The seat identifier.
+     * @return {@code true} if the seat is available, {@code false} otherwise.
+     */
     public boolean isSeatAvailable(String seat)
     {
         if (this.seatAvailability.containsKey(seat))
@@ -60,7 +78,12 @@ public class Schedule
             return false;
         }
     }
-
+    /**
+     * Checks if a list of seats is available.
+     *
+     * @param seat The list of seat identifiers.
+     * @return {@code true} if all seats in the list are available, {@code false} otherwise.
+     */
     public boolean isSeatAvailable(List<String> seat)
     {
         int counter = 0;
@@ -75,18 +98,29 @@ public class Schedule
         else return false;
 
     }
-
+    /**
+     * Books a specific seat.
+     *
+     * @param seat The seat identifier to be booked.
+     */
     public void bookSeat(String seat)
     {
         this.seatAvailability.put(seat, false);
     }
-
+    /**
+     * Books a list of seats.
+     *
+     * @param seatList The list of seat identifiers to be booked.
+     */
     public void bookSeat(List<String> seatList)
     {
         for (String seat : seatList){
             bookSeat(seat);
         }
     }
+    /**
+     * Prints the schedule details including the departure timestamp and seat availability.
+     */
     public void printSchedule() 
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy HH:mm:ss");
@@ -111,7 +145,11 @@ public class Schedule
         }
         System.out.println("\n");
     }
-
+    /**
+     * Returns a string representation of the {@code Schedule} object.
+     *
+     * @return A string representation containing the formatted departure schedule and seat availability information.
+     */
     public String toString()
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S");
